@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static class IntroActivity extends AppCompatActivity {
 
         /**
-         * Making 'Get Started' button clickable
+         * declaring 'Get Started' button
          */
         private ConstraintLayout startBtn;
 
@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_intro);
 
+            /**
+             * making our Get started button clickable
+             */
             startBtn=findViewById(R.id.startBtn);
             startBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
