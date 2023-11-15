@@ -115,9 +115,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -195,27 +199,30 @@
                             app:layout_constraintVertical_bias="0.0" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="@id/scrollview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:backgroundTint="#f6f6f6"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp"
-            android:layout_gravity="bottom">
+            app:fabCradleVerticalOffset="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -229,11 +236,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
+                        android:src="@drawable/bottom_btn1"
                         app:srcCompat="@drawable/bottom_btn1" />
 
                     <TextView
@@ -254,11 +261,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
+                        android:src="@drawable/bottom_btn2"
                         app:srcCompat="@drawable/bottom_btn2" />
 
                     <TextView
@@ -280,7 +287,7 @@
                     android:visibility="invisible">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
                         android:layout_weight="1"
@@ -305,11 +312,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
+                        android:src="@drawable/bottom_btn3"
                         app:srcCompat="@drawable/bottom_btn3" />
 
                     <TextView
@@ -330,11 +337,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
+                        android:src="@drawable/bottom_btn4"
                         app:srcCompat="@drawable/bottom_btn4" />
 
                     <TextView
@@ -350,18 +357,21 @@
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#ff5e00"
-            android:elevation="3dp"
-            android:src="@drawable/shopping_cart"
-            app:backgroundTint="#ff5e00"
-            app:layout_anchor="@+id/app_bar"
-
-            >
-
-        </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ff5e00"
+        android:elevation="3dp"
+        android:src="@drawable/shopping_cart"
+
+        app:backgroundTint="#ff5e00"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/coordinatorLayout">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
