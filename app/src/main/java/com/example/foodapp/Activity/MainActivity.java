@@ -10,14 +10,16 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.foodapp.Activity.Adaptor.CategoryAdaptor;
+import com.example.foodapp.Activity.Adaptor.PopularAdaptor;
 import com.example.foodapp.Activity.Domain.CategoryDomain;
+import com.example.foodapp.Activity.Domain.FoodDomain;
 import com.example.foodapp.R;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView.Adapter adapter;
-    private RecyclerView recyclerViewCategoryList;
+    private RecyclerView.Adapter adapter,adapter2;
+    private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerViewCategory();
+        recyclerViewPopular();
     }
 
     private void recyclerViewCategory() {
@@ -41,6 +44,20 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new CategoryAdaptor(category);
         recyclerViewCategoryList.setAdapter(adapter);
+    }
+
+    private void recyclerViewPopular() {
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewPopularList=findViewById(R.id.recyclerView2);
+        recyclerViewPopularList.setLayoutManager(linearLayoutManager);
+
+        ArrayList<FoodDomain> foodList=new ArrayList<>();
+        foodList.add(new FoodDomain("Pepperoni pizza", "pop_1", "slices pepperoni,mozzerella cheese, fresh oregano, ground black pepper,pizza sauce",9.76));
+        foodList.add(new FoodDomain("Cheese Burger", "logo", "beef, Gauda Cheese, Special Sauce, Lettuce, tomato",8.79));
+        foodList.add(new FoodDomain("Vegetable pizza","pop_3","olive oil, vegetableoil, pitted kalamata, cherry tomatoes, frash oregano, basil", 8.5));
+
+        adapter2=new PopularAdaptor(foodList);
+        recyclerViewPopularList.setAdapter(adapter2);
     }
 
     public static class IntroActivity extends AppCompatActivity {
