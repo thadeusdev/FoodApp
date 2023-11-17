@@ -45,7 +45,7 @@ dependencies {
     /**
      * Added extra dependencies step: 1
      * */
-//    implementation("com.google.android.material:material:1.4.0-rc01")
+    implementation("com.google.android.material:material:1.4.0-rc01")
     implementation("com.github.bumptech.glide:glide:4.14.2")
-//    implementation("com.google.code.gson:gson:2.8.7")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

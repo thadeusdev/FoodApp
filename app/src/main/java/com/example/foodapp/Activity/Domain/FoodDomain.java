@@ -1,6 +1,8 @@
 package com.example.foodapp.Activity.Domain;
 
-public class FoodDomain {
+import java.io.Serializable;
+
+public class FoodDomain implements Serializable {
     private String title;
     private String pic;
     private String description;
@@ -44,5 +46,21 @@ public class FoodDomain {
 
     public void setFee (Double fee) {
         this.fee = fee;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getNumberInCart() {
+        return numberInCart;
+    }
+
+    public void setNumberInCart(int numberInCart) {
+        this.numberInCart = numberInCart;
     }
 }
