@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.foodapp.Activity.Domain.FoodDomain;
+import com.example.foodapp.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 
@@ -41,5 +42,30 @@ public class ManagementCart {
 
     public ArrayList<FoodDomain> getListCart() {
         return tinyDB.getListObject("CartList");
+    }
+
+    public void plusNumberFood(ArrayList<FoodDomain> listFoods, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+        listFoods.get(position).setNumberInCart(listFoods.get(position).getNumberInCart()+1);
+        tinyDB.putListObject("CartList", listFoods);
+        changeNumberItemsListener.changed();
+    }
+
+    public void minusNumberFood(ArrayList<FoodDomain> listFoods,int position,ChangeNumberItemsListener changeNumberItemsListener) {
+        if(listFoods.get(position).getNumberInCart()==1) {
+            listFoods.remove(position);
+        } else {
+            listFoods.get(position).setNumberInCart(listFoods.get(position).getNumberInCart()-1);
+        }
+        tinyDB.putListObject("CartList",listFoods);
+        changeNumberItemsListener.changed();
+    }
+
+    public Double getTotalFee(){
+        ArrayList<FoodDomain> listFoods=getListCart();
+        double fee=0;
+        for (int i=0; i<listFoods.size(); i++) {
+            fee=fee+(listFoods.get(i).getFee()*listFoods.get(i).getNumberInCart());
+        }
+        return fee;
     }
 }
